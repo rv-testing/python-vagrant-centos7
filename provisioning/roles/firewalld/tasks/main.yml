@@ -10,23 +10,23 @@
     enabled: true
     state: started
 
-- name: Open port for Django's runserver.
-  firewalld:
-    port: 8000/tcp
-    permanent: true
-    state: enabled
-
-- name: SIMPL Model Service
-  firewalld:
-    port: 8080/tcp
-    permanent: true
-    state: enabled
-
-- name: SIMPL API
-  firewalld:
-    port: 8100/tcp
-    permanent: true
-    state: enabled
+#- name: Open port for Django's runserver.
+#  firewalld:
+#    port: 8000/tcp
+#    permanent: true
+#    state: enabled
+#
+#- name: SIMPL Model Service
+#  firewalld:
+#    port: 8080/tcp
+#    permanent: true
+#    state: enabled
+#
+#- name: SIMPL API
+#  firewalld:
+#    port: 8100/tcp
+#    permanent: true
+#    state: enabled
 
 - name: Restart firewalld.
   service:

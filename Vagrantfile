@@ -8,14 +8,14 @@ Vagrant.configure("2") do |config|
 
     # Guest VM settings
     config.vm.provider "virtualbox" do |v|
-        v.customize ["modifyvm", :id, "--memory", 3072]
+        v.customize ["modifyvm", :id, "--memory", 2048]
         v.customize ["modifyvm", :id, "--cpus", "2"]
         v.customize ["modifyvm", :id, "--cpuexecutioncap", "100"]
         v.customize ["modifyvm", :id, "--vram", "12"]
         v.customize ["modifyvm", :id, "--ioapic", "on"]
         v.customize ["modifyvm", :id, "--audio", "none"]
         v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
-        v.name = "python-vagrant-centos7"
+        v.name = "master1"
     end
 
     # Set up a private IP that can be added to the host machine's hosts file
@@ -24,10 +24,11 @@ Vagrant.configure("2") do |config|
     # Ports to forward from the guest VM to the host
     # Uncomment the line below for Apache on port 80
   	# config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8000, host: 8000, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8100, host: 8100, auto_correct: false
+	#config.vm.network :forwarded_port, guest: 22, host: 2222, id: 'ssh'
+  	#config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: false
+  	#config.vm.network "forwarded_port", guest: 8000, host: 8000, auto_correct: false
+  	#config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: false
+  	#config.vm.network "forwarded_port", guest: 8100, host: 8100, auto_correct: false
 
     # Set a hostname
     if ENV['VAGRANT_HOSTNAME'].nil? and Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/#{vm_name}/virtualbox/id").empty? and vagrant_arg == 'up'
@@ -36,7 +37,7 @@ Vagrant.configure("2") do |config|
         config.vm.hostname = STDIN.gets.chomp
 
         if config.vm.hostname == ''
-            config.vm.hostname = "vagrant.example.com"
+            config.vm.hostname = "master1"
         end
     else
         config.vm.hostname = ENV['VAGRANT_HOSTNAME']

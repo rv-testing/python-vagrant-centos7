@@ -8,13 +8,13 @@
     - { role: repository_epel, tags: ['yum'] }
     - { role: repository_ius, tags: ['yum'] }
     - { role: yum_packages, tags: ['yum'] }
-    - { role: wkhtmltopdf, tags: ['yum', 'pdf'] }
+    #- { role: wkhtmltopdf, tags: ['yum', 'pdf'] }
     - { role: python27, tags: ['python'] }
-    - { role: python36, tags: ['python'] }
-    - { role: freetds, tags: ['sql', 'sql server', 'freetds'] }
-    - { role: mssql, tags: ['sql', 'sql server', 'msodbc'] }
-    - { role: postgresql, tags: ['postgresql']}
-    - { role: postgresql_vagrant, tags: ['postgresql']}
+    #- { role: python36, tags: ['python'] }
+    #- { role: freetds, tags: ['sql', 'sql server', 'freetds'] }
+    #- { role: mssql, tags: ['sql', 'sql server', 'msodbc'] }
+    #- { role: postgresql, tags: ['postgresql']}
+    #- { role: postgresql_vagrant, tags: ['postgresql']}
 
     ######################################################
     # These roles may be added at the user's discretion  #
